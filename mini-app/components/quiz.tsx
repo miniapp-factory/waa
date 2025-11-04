@@ -62,11 +62,17 @@ export default function Quiz() {
   };
 
   if (result) {
+    const imageName = result.toLowerCase().replace(/\\s+/g, "-");
     return (
       <div className="text-center">
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-xl font-semibold mb-4">
           You are most similar to {result}!
         </h2>
+        <img
+          src={`/${imageName}.png`}
+          alt={result}
+          className="mx-auto my-4 w-32 h-32 rounded-full object-cover"
+        />
       </div>
     );
   }
